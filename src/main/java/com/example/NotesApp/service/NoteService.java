@@ -6,6 +6,7 @@ import com.example.NotesApp.repository.TestNoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoteService
@@ -35,4 +36,18 @@ public class NoteService
 		noteRepository.save( aNote );
 	}
 
+	public void editNote( Note aNote )
+	{
+		Optional< Note > oldNote = noteRepository.findById( aNote.getId() );
+		oldNote.ifPresent( note -> {
+			note.setTitle( aNote.getTitle() );
+			note.setContent( aNote.getContent() );
+			noteRepository.save( note );
+		} );
+	}
+
+	public void deleteNote( int aId )
+	{
+		noteRepository.deleteById( aId );
+	}
 }

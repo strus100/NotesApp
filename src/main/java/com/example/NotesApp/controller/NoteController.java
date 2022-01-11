@@ -2,10 +2,7 @@ package com.example.NotesApp.controller;
 
 import com.example.NotesApp.model.Note;
 import com.example.NotesApp.service.NoteService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,18 @@ public class NoteController
 	public void addNote( @RequestBody Note aNote )
 	{
 		noteService.addNote( aNote );
+	}
+
+	@PutMapping( "/editNote" )
+	public void editNote( @RequestBody Note aNote )
+	{
+		noteService.editNote( aNote );
+	}
+
+	@DeleteMapping( "/deleteNote" )
+	public void deleteNote( @RequestParam int aId )
+	{
+		noteService.deleteNote( aId );
 	}
 
 }
