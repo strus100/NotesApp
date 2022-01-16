@@ -39,5 +39,4 @@ public class NoteController
 	{
 		noteService.deleteNote( aId );
 	}
-
 }

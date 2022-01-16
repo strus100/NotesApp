@@ -1,0 +1,57 @@
+@font-face{
+  font-family: Roboto;
+  src: url(/assets/Roboto-Regular.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all linear .2s;
+}
+
+body{
+  font-family: Roboto;
+  background-color: #EEE;
+}
+
+a{
+  text-decoration: none;
+  color: #6060f9;
+}
+
+nav ul{
+  display: flex;
+  flex-direction: row;
+}
+
+nav li{
+  flex: initial;
+}
+
+nav li a{
+  display: inline-block;
+  padding: 20px;
+}
+
+nav li a:hover{
+  background-color: #DDD;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  background-color: #5e5ef3;
+  outline: none;
+  padding: 10px;
+  color: #FFF;
+  border: none;
+
+}
+
+button:hover{
+  box-shadow: black 1px 1px 5px;
+  cursor: pointer;
+}
