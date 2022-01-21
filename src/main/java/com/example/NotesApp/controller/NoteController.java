@@ -5,8 +5,10 @@ import com.example.NotesApp.service.NoteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/notes")
 public class NoteController
 {
 	private final NoteService noteService;
@@ -16,10 +18,16 @@ public class NoteController
 		noteService = aNoteService;
 	}
 
-	@GetMapping( "/notes" )
+	@GetMapping( "/" )
 	public List< Note > findNotes()
 	{
 		return noteService.findNotes();
+	}
+
+	@GetMapping( "/{aId}" )
+	public Optional< Note > findNoteById( @PathVariable int aId )
+	{
+		return noteService.findNote( aId );
 	}
 
 	@PostMapping( "/addNote" )

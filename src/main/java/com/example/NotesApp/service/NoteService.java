@@ -2,7 +2,6 @@ package com.example.NotesApp.service;
 
 import com.example.NotesApp.model.Note;
 import com.example.NotesApp.repository.NoteRepository;
-import com.example.NotesApp.repository.TestNoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +30,11 @@ public class NoteService
 		return noteRepository.findAll();
 	}
 
+	public Optional< Note > findNote( int aId )
+	{
+		return noteRepository.findById( aId );
+	}
+
 	public void addNote( Note aNote )
 	{
 		noteRepository.save( aNote );
@@ -50,4 +54,5 @@ public class NoteService
 	{
 		noteRepository.deleteById( aId );
 	}
+
 }
