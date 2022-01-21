@@ -15,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	private static final String PATTERN = "/api/**";
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -33,11 +35,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.httpBasic()
 				.and()
 				.authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/**").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.POST, "/**").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/**").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.PATCH, "/**").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/**").hasAuthority("ADMIN")
+				.antMatchers(HttpMethod.GET, PATTERN).hasAuthority("ADMIN")
+				.antMatchers(HttpMethod.POST, PATTERN).hasAuthority("ADMIN")
+				.antMatchers(HttpMethod.PUT, PATTERN).hasAuthority("ADMIN")
+				.antMatchers(HttpMethod.PATCH, PATTERN).hasAuthority("ADMIN")
+				.antMatchers(HttpMethod.DELETE, PATTERN).hasAuthority("ADMIN")
 				.and()
 				.csrf().disable()
 				.formLogin().disable();

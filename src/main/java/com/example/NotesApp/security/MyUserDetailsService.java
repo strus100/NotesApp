@@ -26,4 +26,9 @@ public class MyUserDetailsService implements UserDetailsService
 
 		return user.map( MyUserDetails::new ).get();
 	}
+
+	public void register( User aUser )
+	{
+		userRepository.save( aUser );
+	}
 }
