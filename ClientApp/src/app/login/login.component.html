@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div id="loginComponent">
+  <div class="flexBox">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <input type="text" formControlName="login" placeholder="Login">
+      <br>
+      <input type="password" formControlName="password" placeholder="Hasło">
+      <br>
+      <button type="submit">Logowanie</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+      <input type="text" formControlName="userName" placeholder="Login">
+      <br>
+      <input type="password" formControlName="password" placeholder="Hasło">
+      <br>
+      <input type="password" formControlName="passwordRepeat" placeholder="Powtórz hasło">
+      <br>
+      <button type="submit">Rejestracja</button>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face{
+  font-family: Roboto;
+  src: url(/assets/Roboto-Regular.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all linear .2s;
+}
+
+body{
+  font-family: Roboto;
+  background-color: #EEE;
+}
+
+a{
+  text-decoration: none;
+  color: #6060f9;
+}
+
+nav ul{
+  display: flex;
+  flex-direction: row;
+}
+
+nav li{
+  flex: initial;
+}
+
+nav li a{
+  display: inline-block;
+  padding: 20px;
+}
+
+nav li a:hover{
+  background-color: #DDD;
+}
+
+ul{
+  list-style: none;
+}
+
+input,
+button{
+  outline: none;
+  padding: 15px;
+  box-shadow: black 1px 1px 2px;
+  border: 0;
+  margin: 2px;
+}
+
+button,
+input[type=button]{
+  background-color: #5e5ef3;
+  color: #FFF;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus,
+input:hover,
+input:focus{
+  box-shadow: black 2px 2px 5px;
+}
+
+.flexBox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#loginComponent form{
+  margin: 0 12.5%;
+}
+
+#loginComponent{
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+
+#loginComponent > div{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

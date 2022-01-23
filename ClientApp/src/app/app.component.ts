@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuard } from './guards/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ClientApp';
+  hideNavbar = !this.authGuard.isLoggedIn();
+
+  constructor(private authGuard: AuthGuard){
+
+  }
 }
