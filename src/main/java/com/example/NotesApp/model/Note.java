@@ -17,5 +17,9 @@ public class Note
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
-	private String content;
+	//private String content;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "contentId", referencedColumnName = "id")
+	private Content content;
 }

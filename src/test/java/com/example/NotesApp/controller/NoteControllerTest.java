@@ -1,5 +1,6 @@
 package com.example.NotesApp.controller;
 
+import com.example.NotesApp.model.Content;
 import com.example.NotesApp.model.Note;
 import com.example.NotesApp.repository.NoteRepository;
 import com.example.NotesApp.repository.TestNoteRepository;
@@ -82,7 +83,7 @@ class NoteControllerTest
 	@WithMockUser(username = "admin", password = "admin", authorities = "ADMIN")
 	public void shouldGrandAccessWithAuthorization3() throws Exception
 	{
-		service.addNote( new Note( 1, "TEST", "TEST" ) );
+		service.addNote( new Note( 1, "TEST", new Content(1, "test")) );
 		assertFalse( service.findNotes().isEmpty() );
 		mockMvc.perform( delete( "/api/notes/deleteNote/" ).param( "aId", "1" ) )
 				.andExpect( status().is( 200 ) );
