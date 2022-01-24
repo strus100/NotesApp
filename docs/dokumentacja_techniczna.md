@@ -1,7 +1,12 @@
 Stos technologiczny projektu:
 Java, Spring, Angular
 
-Diagram bazy danych
+Diagram klas:
+
+![img.png](img.png)
+Diagram bazy danych:
+
+![img_1.png](img_1.png)
 
 REST API:
 
