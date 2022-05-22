@@ -13,7 +13,8 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
+{
 
 	private static final String PATTERN = "/api/**";
 
@@ -21,15 +22,18 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure( AuthenticationManagerBuilder auth ) throws Exception
+	{
 
 		auth.userDetailsService( userDetailsService );
 	}
 
 	// Secure the endpoins with HTTP Basic authentication
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-
+	protected void configure( HttpSecurity http ) throws Exception
+	{
+		//NOTHING TO DO
+		/*
 		http
 				//HTTP Basic authentication
 				.httpBasic()
@@ -42,11 +46,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.DELETE, PATTERN).hasAuthority("ADMIN")
 				.and()
 				.csrf().disable()
-				.formLogin().disable();
+				.formLogin().disable();*/
 	}
 
 	@Bean
-	public PasswordEncoder getPasswordEncoder() {
+	public PasswordEncoder getPasswordEncoder()
+	{
 		return new BCryptPasswordEncoder();
 	}
 
