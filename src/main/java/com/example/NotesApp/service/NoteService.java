@@ -35,9 +35,9 @@ public class NoteService
 		return noteRepository.findById( aId );
 	}
 
-	public void addNote( Note aNote )
+	public Note addNote( Note aNote )
 	{
-		noteRepository.save( aNote );
+		return noteRepository.save( aNote );
 	}
 
 	public void editNote( Note aNote )

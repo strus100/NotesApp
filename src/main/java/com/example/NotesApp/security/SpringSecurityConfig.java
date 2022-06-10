@@ -11,48 +11,33 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
 
-	private static final String PATTERN = "/api/**";
-
-	@Autowired
-	private UserDetailsService userDetailsService;
-
-	@Override
-	protected void configure( AuthenticationManagerBuilder auth ) throws Exception
-	{
-
-		auth.userDetailsService( userDetailsService );
-	}
-
-	// Secure the endpoins with HTTP Basic authentication
 	@Override
 	protected void configure( HttpSecurity http ) throws Exception
 	{
-		//NOTHING TO DO
-		/*
-		http
-				//HTTP Basic authentication
-				.httpBasic()
-				.and()
-				.authorizeRequests()
-				.antMatchers(HttpMethod.GET, PATTERN).hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.POST, PATTERN).hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.PUT, PATTERN).hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.PATCH, PATTERN).hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.DELETE, PATTERN).hasAuthority("ADMIN")
-				.and()
-				.csrf().disable()
-				.formLogin().disable();*/
+		http.cors().and().csrf().disable();
 	}
 
 	@Bean
-	public PasswordEncoder getPasswordEncoder()
+	CorsConfigurationSource corsConfigurationSource()
 	{
-		return new BCryptPasswordEncoder();
+		CorsConfiguration configuration = new CorsConfiguration();
+		configuration.setAllowedOrigins( Arrays.asList( "*" ) );
+		configuration.setAllowedMethods( Arrays.asList( "*" ) );
+		configuration.setAllowedHeaders( Arrays.asList( "*" ) );
+		configuration.setAllowCredentials( true );
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration( "/**",configuration );
+		return source;
 	}
 
 }

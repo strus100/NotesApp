@@ -31,9 +31,10 @@ public class NoteController
 	}
 
 	@PostMapping( "/addNote" )
-	public void addNote( @RequestBody Note aNote )
+	public int addNote( @RequestBody Note aNote )
 	{
-		noteService.addNote( aNote );
+		Note note = noteService.addNote( aNote );
+		return note.getId();
 	}
 
 	@PutMapping( "/editNote" )
@@ -42,8 +43,8 @@ public class NoteController
 		noteService.editNote( aNote );
 	}
 
-	@DeleteMapping( "/deleteNote" )
-	public void deleteNote( @RequestParam int aId )
+	@DeleteMapping( "/deleteNote/{aId}" )
+	public void deleteNote( @PathVariable int aId )
 	{
 		noteService.deleteNote( aId );
 	}
