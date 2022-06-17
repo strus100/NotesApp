@@ -3,8 +3,8 @@ Wymagania funkcjonalne:
 2. Edycja notatki
 3. Usuwanie notatki
 4. Odczyt wszystkich notatek
-5. Odczyt notatki o zadanym id
+5. Odczyt ostatnio dodanej notatki
 
 Wymagania niefunkcjonalne:
-1. Zabezpieczenie API 
-2. Umożliwienie programistycznego utworzenia ról w systemie 
+1. Wykorzystanie architektury REST API
+2. Umożliwienie łatwej zmiany, rozszerzenia technologii wykorzystywanych w części klienckiej aplikacji.
