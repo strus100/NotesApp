@@ -1,5 +1,5 @@
 Stos technologiczny projektu:
-Java, Spring, Angular, Android
+Java, Spring, Angular, Android(java)
 
 Diagram klas:
 
@@ -42,4 +42,3 @@ Dane są wysyłane i odbierane korzystając z JSON.
 Wykorzystywane są 2 modele:
 1. Content - zawiera zawartość notatki
 2. Note - notatka zawierająca tytuł i zawartość
-
